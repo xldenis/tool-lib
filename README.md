@@ -6,3 +6,9 @@ The objective is to identify what subset of the `rustc` API is used by verificat
 The initial plan is to first *identify* and *isolate* the set of rust apis used by verification tools, and then classify those apis into "Necessary", "Questionable" and "Problematic" categories so that we can identify what should really be exposed via a `tool_lib` and what should either be wrapped or reformulated.
 
 Additionally, this could form a good starting place for code sharing, by allowing tool authors to place common utility functions in a shared location.
+
+## A Rough Guideline for adding an API
+
+- Don't public expose internal rust api modules, only types or functions.
+- Don't use glob patterns. 
+- Don't `use` constructors.
