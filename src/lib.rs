@@ -60,23 +60,16 @@ pub use rustc_middle::implement_ty_decoder;
 
 pub mod mir {
     pub use rustc_middle::mir;
-    pub use rustc_middle::mir::interpret::AllocId;
-    pub use rustc_middle::mir::interpret::{AllocRange, ConstValue};
+    pub use rustc_middle::mir::interpret::{AllocId, AllocRange, ConstValue};
     pub use rustc_middle::mir::traversal::preorder;
-    pub use rustc_middle::mir::visit::{MutVisitor, TyContext};
-    pub use rustc_middle::mir::visit::{MutatingUseContext, NonMutatingUseContext, NonUseContext};
-    pub use rustc_middle::mir::visit::{PlaceContext, Visitor};
-    pub use rustc_middle::mir::AggregateKind::*;
-    pub use rustc_middle::mir::Field;
-    pub use rustc_middle::mir::Location;
-    pub use rustc_middle::mir::Operand::*;
-    pub use rustc_middle::mir::Place;
-    pub use rustc_middle::mir::ProjectionElem::*;
-    pub use rustc_middle::mir::Rvalue::*;
-    pub use rustc_middle::mir::StatementKind;
+    pub use rustc_middle::mir::visit::{
+        MutVisitor, MutatingUseContext, NonMutatingUseContext, NonUseContext, PlaceContext,
+        TyContext, Visitor,
+    };
     pub use rustc_middle::mir::VarDebugInfoContents;
-    pub use rustc_middle::mir::{AggregateKind, BasicBlock, Body, Local, Promoted};
-    pub use rustc_middle::mir::{BasicBlockData, Rvalue, TerminatorKind};
+    pub use rustc_middle::mir::{AggregateKind, Place, Rvalue, StatementKind, TerminatorKind};
+    pub use rustc_middle::mir::{BasicBlock, BasicBlockData, Body, Promoted};
+    pub use rustc_middle::mir::{Field, Local, Location};
 }
 
 pub mod thir {
