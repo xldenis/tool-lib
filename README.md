@@ -11,6 +11,6 @@ As the work progresses, it could also be a good opportunity re-organize the vari
 
 ## A Rough Guideline for adding an API
 
-- Don't public expose internal rust api modules, only types or functions.
-- Don't use glob patterns. 
-- Don't `use` constructors.
+- Avoid exposing entire _modules_.
+- Avoid using glob patterns to expose types or functions. 
+- Avoid exposing constructors of types, instead expose the type itself.
