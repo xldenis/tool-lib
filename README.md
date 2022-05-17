@@ -7,6 +7,8 @@ The initial plan is to first *identify* and *isolate* the set of rust apis used 
 
 Additionally, this could form a good starting place for code sharing, by allowing tool authors to place common utility functions in a shared location.
 
+As the work progresses, it could also be a good opportunity re-organize the various APIs into a coherent and unified set of modules, masking their underlying `rustc` crate sources.
+
 ## A Rough Guideline for adding an API
 
 - Don't public expose internal rust api modules, only types or functions.
