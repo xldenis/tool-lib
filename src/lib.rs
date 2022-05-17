@@ -59,7 +59,7 @@ pub use rustc_middle::hir::nested_filter::OnlyBodies;
 pub use rustc_middle::implement_ty_decoder;
 
 pub mod mir {
-    pub use rustc_middle::mir;
+    pub use rustc_middle::mir;  // TODO: Remove
     pub use rustc_middle::mir::interpret::{AllocId, AllocRange, ConstValue};
     pub use rustc_middle::mir::traversal::preorder;
     pub use rustc_middle::mir::visit::{
@@ -73,13 +73,13 @@ pub mod mir {
 }
 
 pub mod thir {
-    pub use rustc_middle::thir;
+    pub use rustc_middle::thir; // TODO: Remove
     pub use rustc_middle::thir::visit::Visitor;
     pub use rustc_middle::thir::{Expr, ExprKind, Thir};
 }
 
 pub mod ty {
-    pub use rustc_middle::ty;
+    pub use rustc_middle::ty;  // TODO: Remove
     pub use rustc_middle::ty::codec::TyDecoder;
     pub use rustc_middle::ty::codec::TyEncoder;
     pub use rustc_middle::ty::fold::TypeFoldable;
@@ -114,14 +114,14 @@ pub use rustc_mir_dataflow::{Results, ResultsCursor};
 
 pub use rustc_mir_transform::{remove_false_edges::*, simplify::*};
 
-pub use rustc_serialize::opaque;
+pub use rustc_serialize::opaque;  // TODO: Remove
 pub use rustc_serialize::{Decodable, Decoder};
 pub use rustc_serialize::{Encodable, Encoder};
 
 pub use rustc_session::cstore::CrateStore;
 pub use rustc_session::Session;
 
-pub use rustc_span::symbol::kw;
+pub use rustc_span::symbol::kw;  // TODO: Remove
 pub use rustc_span::{Span, Symbol, DUMMY_SP};
 
 pub use rustc_target::abi::Size;
