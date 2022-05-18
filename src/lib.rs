@@ -133,11 +133,15 @@ pub mod ty {
     pub use rustc_middle::ty::{ParamEnv, Predicate};
 }
 
-pub use rustc_mir_dataflow::impls::{MaybeInitializedLocals, MaybeLiveLocals};
-pub use rustc_mir_dataflow::move_paths::MoveData;
-pub use rustc_mir_dataflow::Analysis;
-pub use rustc_mir_dataflow::{AnalysisDomain, GenKill, GenKillAnalysis};
-pub use rustc_mir_dataflow::{Results, ResultsCursor};
+pub mod dataflow {
+    pub use rustc_mir_dataflow::impls::{MaybeInitializedLocals, MaybeLiveLocals};
+    pub use rustc_mir_dataflow::move_paths::MoveData;
+    pub use rustc_mir_dataflow::Analysis;
+    pub use rustc_mir_dataflow::CallReturnPlaces;
+    pub use rustc_mir_dataflow::{AnalysisDomain, GenKill, GenKillAnalysis};
+    pub use rustc_mir_dataflow::{Backward, Forward};
+    pub use rustc_mir_dataflow::{Results, ResultsCursor};
+}
 
 pub use rustc_mir_transform::{remove_false_edges::*, simplify::*};
 
