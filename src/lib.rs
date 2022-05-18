@@ -59,51 +59,76 @@ pub use rustc_middle::hir::map::Map;
 pub use rustc_middle::hir::nested_filter::OnlyBodies;
 pub use rustc_middle::implement_ty_decoder;
 
+pub mod hir {
+    pub use rustc_middle::hir::map::Map;
+    pub use rustc_middle::hir::nested_filter;
+}
+
 pub mod mir {
     pub use rustc_middle::mir; // TODO: Remove
+    pub use rustc_middle::mir::interpret;
     pub use rustc_middle::mir::interpret::{AllocId, AllocRange, ConstValue};
     pub use rustc_middle::mir::pretty;
+    pub use rustc_middle::mir::traversal;
     pub use rustc_middle::mir::traversal::preorder;
     pub use rustc_middle::mir::visit::{
         MutVisitor, MutatingUseContext, NonMutatingUseContext, NonUseContext, PlaceContext,
         TyContext, Visitor,
     };
+    pub use rustc_middle::mir::SwitchTargets;
     pub use rustc_middle::mir::VarDebugInfoContents;
-    pub use rustc_middle::mir::{AggregateKind, Place, Rvalue, StatementKind, TerminatorKind};
+    pub use rustc_middle::mir::{
+        visit, AggregateKind, ConstantKind, Operand, Place, ProjectionElem, Rvalue, Statement,
+        StatementKind, Terminator, TerminatorKind,
+    };
     pub use rustc_middle::mir::{BasicBlock, BasicBlockData, Body, Promoted};
-    pub use rustc_middle::mir::{Field, Local, Location};
+    pub use rustc_middle::mir::{BinOp, UnOp};
+    pub use rustc_middle::mir::{BorrowKind, Mutability};
+    pub use rustc_middle::mir::{CastKind, MirPass};
+    pub use rustc_middle::mir::{Field, Local, Location, SourceInfo, VarDebugInfo};
 }
 
 pub mod thir {
     pub use rustc_middle::thir; // TODO: Remove
     pub use rustc_middle::thir::visit::Visitor;
-    pub use rustc_middle::thir::{Expr, ExprKind, Thir};
+    pub use rustc_middle::thir::{
+        visit, Adt, ArmId, Block, Expr, ExprId, ExprKind, LogicalOp, Pat, PatKind, StmtId,
+        StmtKind, Thir,
+    };
 }
 
 pub mod ty {
     pub use rustc_middle::ty; // TODO: Remove
     pub use rustc_middle::ty::codec::TyDecoder;
     pub use rustc_middle::ty::codec::TyEncoder;
+    pub use rustc_middle::ty::fold;
     pub use rustc_middle::ty::fold::TypeFoldable;
+    pub use rustc_middle::ty::subst::GenericArg;
+    pub use rustc_middle::ty::subst::GenericArgKind;
     pub use rustc_middle::ty::subst::{InternalSubsts, Subst, SubstsRef};
     pub use rustc_middle::ty::AssocItemContainer;
     pub use rustc_middle::ty::ClosureKind;
     pub use rustc_middle::ty::DefIdTree;
     pub use rustc_middle::ty::GenericParamDef;
     pub use rustc_middle::ty::GenericParamDefKind;
+    pub use rustc_middle::ty::PolyTraitRef;
     pub use rustc_middle::ty::PredicateKind;
     pub use rustc_middle::ty::ProjectionTy;
     pub use rustc_middle::ty::ReErased;
+    pub use rustc_middle::ty::Region;
+    pub use rustc_middle::ty::RegionKind;
     pub use rustc_middle::ty::TraitRef;
     pub use rustc_middle::ty::Ty;
     pub use rustc_middle::ty::TyCtxt;
     pub use rustc_middle::ty::TyKind;
+    pub use rustc_middle::ty::TypeVisitor;
     pub use rustc_middle::ty::VariantDef;
     pub use rustc_middle::ty::Visibility;
     pub use rustc_middle::ty::WithOptConstParam;
     pub use rustc_middle::ty::{AdtDef, UpvarSubsts};
     pub use rustc_middle::ty::{AssocItem, Binder};
     pub use rustc_middle::ty::{ClosureSubsts, FieldDef};
+    pub use rustc_middle::ty::{Const, ConstKind, ConstS, Unevaluated};
     pub use rustc_middle::ty::{FloatTy, IntTy, UintTy};
     pub use rustc_middle::ty::{ParamEnv, Predicate};
 }
@@ -123,8 +148,8 @@ pub use rustc_serialize::{Encodable, Encoder};
 pub use rustc_session::cstore::CrateStore;
 pub use rustc_session::Session;
 
-pub use rustc_span::symbol::{kw, Ident}; // TODO: Remove
-pub use rustc_span::{Span, Symbol, DUMMY_SP};
+pub use rustc_span::symbol::{kw, sym, Ident}; // TODO: Remove
+pub use rustc_span::{FileName, Span, Symbol, DUMMY_SP};
 
 pub use rustc_target::abi::Size;
 pub use rustc_target::abi::VariantIdx;
@@ -134,3 +159,6 @@ pub use rustc_trait_selection::infer::TyCtxtInferExt;
 pub use rustc_trait_selection::traits::error_reporting::InferCtxtExt;
 pub use rustc_trait_selection::traits::FulfillmentContext;
 pub use rustc_trait_selection::traits::ImplSource;
+pub use rustc_trait_selection::traits::{
+    FulfillmentError, Obligation, ObligationCause, Reveal, TraitEngine,
+};
