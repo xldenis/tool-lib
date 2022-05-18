@@ -42,6 +42,7 @@ pub use rustc_hir::def::DefKind;
 pub use rustc_hir::def_id::{
     CrateNum, DefId, DefIndex, DefPathHash, LocalDefId, StableCrateId, LOCAL_CRATE,
 };
+pub use rustc_hir::definitions::{DefPathData, DisambiguatedDefPathData};
 pub use rustc_hir::itemlikevisit::ItemLikeVisitor;
 pub use rustc_hir::HirId;
 pub use rustc_hir::Mutability::*;
@@ -59,8 +60,9 @@ pub use rustc_middle::hir::nested_filter::OnlyBodies;
 pub use rustc_middle::implement_ty_decoder;
 
 pub mod mir {
-    pub use rustc_middle::mir;  // TODO: Remove
+    pub use rustc_middle::mir; // TODO: Remove
     pub use rustc_middle::mir::interpret::{AllocId, AllocRange, ConstValue};
+    pub use rustc_middle::mir::pretty;
     pub use rustc_middle::mir::traversal::preorder;
     pub use rustc_middle::mir::visit::{
         MutVisitor, MutatingUseContext, NonMutatingUseContext, NonUseContext, PlaceContext,
@@ -79,7 +81,7 @@ pub mod thir {
 }
 
 pub mod ty {
-    pub use rustc_middle::ty;  // TODO: Remove
+    pub use rustc_middle::ty; // TODO: Remove
     pub use rustc_middle::ty::codec::TyDecoder;
     pub use rustc_middle::ty::codec::TyEncoder;
     pub use rustc_middle::ty::fold::TypeFoldable;
@@ -114,14 +116,14 @@ pub use rustc_mir_dataflow::{Results, ResultsCursor};
 
 pub use rustc_mir_transform::{remove_false_edges::*, simplify::*};
 
-pub use rustc_serialize::opaque;  // TODO: Remove
+pub use rustc_serialize::opaque; // TODO: Remove
 pub use rustc_serialize::{Decodable, Decoder};
 pub use rustc_serialize::{Encodable, Encoder};
 
 pub use rustc_session::cstore::CrateStore;
 pub use rustc_session::Session;
 
-pub use rustc_span::symbol::kw;  // TODO: Remove
+pub use rustc_span::symbol::kw; // TODO: Remove
 pub use rustc_span::{Span, Symbol, DUMMY_SP};
 
 pub use rustc_target::abi::Size;
