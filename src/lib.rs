@@ -123,7 +123,7 @@ pub use rustc_serialize::{Encodable, Encoder};
 pub use rustc_session::cstore::CrateStore;
 pub use rustc_session::Session;
 
-pub use rustc_span::symbol::kw; // TODO: Remove
+pub use rustc_span::symbol::{kw, Ident}; // TODO: Remove
 pub use rustc_span::{Span, Symbol, DUMMY_SP};
 
 pub use rustc_target::abi::Size;
